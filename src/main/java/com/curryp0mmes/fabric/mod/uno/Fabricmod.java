@@ -1,11 +1,17 @@
 package com.curryp0mmes.fabric.mod.uno;
 
+import com.curryp0mmes.fabric.mod.uno.registry.ModBlocks;
+import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 public class Fabricmod implements ModInitializer {
 
+    public static final String MOD_ID = "curry";
+
     @Override
     public void onInitialize() {
+        ModItems.registerItems();
+        ModBlocks.registerBlocks();
 
         System.out.println("Yay this is working");
 
