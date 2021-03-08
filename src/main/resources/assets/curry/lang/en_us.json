@@ -1,6 +1,8 @@
 {
   "item.curry.communism_item": "Hammer and Sickle",
   "block.curry.stalin_block": "Stalin Block",
-  "block.curry.our_ore": "Our Ore!",
+  "block.curry.crystal_ore": "Crystal Ore",
+  "item.curry.crystal_shard": "Crystal Shard",
+  "item.curry.crystal": "Crystal",
   "itemGroup.curry.general": "UdSSR Mod"
 }

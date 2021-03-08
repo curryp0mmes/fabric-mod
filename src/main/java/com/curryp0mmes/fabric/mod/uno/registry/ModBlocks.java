@@ -18,7 +18,7 @@ public class ModBlocks {
             .strength(2.f,20.f)
             .sounds(BlockSoundGroup.METAL));
 
-    public static final Block OUR_ORE = new Block(FabricBlockSettings
+    public static final Block CRYSTAL_ORE = new Block(FabricBlockSettings
             .of(Material.STONE)
             .breakByTool(FabricToolTags.PICKAXES,2)
             .requiresTool()
@@ -27,6 +27,6 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "stalin_block"), STALIN_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "our_ore"), OUR_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
     }
 }
