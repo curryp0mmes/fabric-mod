@@ -10,7 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
-public class Fabricmod implements ModInitializer {
+public class FabricMod implements ModInitializer {
 
     public static final String MOD_ID = "curry";
 

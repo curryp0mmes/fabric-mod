@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.curryp0mmes.fabric.mod.uno.Fabricmod"
+      "com.curryp0mmes.fabric.mod.uno.FabricMod"
     ]
   },
   "mixins": [

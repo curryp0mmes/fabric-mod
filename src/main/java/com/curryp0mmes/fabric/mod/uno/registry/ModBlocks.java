@@ -1,6 +1,6 @@
 package com.curryp0mmes.fabric.mod.uno.registry;
 
-import com.curryp0mmes.fabric.mod.uno.Fabricmod;
+import com.curryp0mmes.fabric.mod.uno.FabricMod;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -26,7 +26,7 @@ public class ModBlocks {
             .sounds(BlockSoundGroup.STONE));
 
     public static void registerBlocks() {
-        Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "stalin_block"), STALIN_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "stalin_block"), STALIN_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
     }
 }
