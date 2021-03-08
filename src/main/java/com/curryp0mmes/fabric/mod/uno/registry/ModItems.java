@@ -11,7 +11,7 @@ import net.minecraft.util.registry.Registry;
 public class ModItems {
 
     //Items
-    public static final Item COMMUNISM_ITEM = new Item(new Item.Settings().group(Fabricmod.MOD_GROUP).maxCount(100)); //
+    public static final Item COMMUNISM_ITEM = new Item(new Item.Settings().group(Fabricmod.MOD_GROUP)); //
 
     //BlockItems
     public static final BlockItem STALIN_BLOCK = new BlockItem(ModBlocks.STALIN_BLOCK, new Item.Settings().group(Fabricmod.MOD_GROUP));
