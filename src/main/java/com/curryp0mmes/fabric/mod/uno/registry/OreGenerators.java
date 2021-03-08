@@ -2,7 +2,6 @@ package com.curryp0mmes.fabric.mod.uno.registry;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -16,7 +15,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class OreGenerators {
 
-    private static ConfiguredFeature<?, ?> CRYSTAL_ORE_OVERWORLD = Feature.ORE
+    private static final ConfiguredFeature<?, ?> CRYSTAL_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
                     OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                     ModBlocks.CRYSTAL_ORE.getDefaultState(),
@@ -29,6 +28,7 @@ public class OreGenerators {
             .repeat(20); // number of veins per chunk
 
 
+    @SuppressWarnings({"deprecation"})
     public static void configureOres() {
         RegistryKey<ConfiguredFeature<?, ?>> crystalOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier("tutorial", "crystal_ore_overworld"));
