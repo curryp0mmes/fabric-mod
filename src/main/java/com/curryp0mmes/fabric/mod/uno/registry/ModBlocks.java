@@ -18,8 +18,15 @@ public class ModBlocks {
             .strength(2.f,20.f)
             .sounds(BlockSoundGroup.METAL));
 
+    public static final Block OUR_ORE = new Block(FabricBlockSettings
+            .of(Material.STONE)
+            .breakByTool(FabricToolTags.PICKAXES,2)
+            .requiresTool()
+            .strength(2.f,20.f)
+            .sounds(BlockSoundGroup.STONE));
 
     public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "stalin_block"), STALIN_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(Fabricmod.MOD_ID, "our_ore"), OUR_ORE);
     }
 }

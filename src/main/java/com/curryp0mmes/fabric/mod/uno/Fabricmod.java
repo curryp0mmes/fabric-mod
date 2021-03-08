@@ -4,9 +4,18 @@ import com.curryp0mmes.fabric.mod.uno.registry.ModBlocks;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
+
 public class Fabricmod implements ModInitializer {
 
     public static final String MOD_ID = "curry";
+
+    public static final ItemGroup MOD_GROUP = FabricItemGroupBuilder
+            .build(new Identifier(MOD_ID, "general"),
+            () -> new ItemStack(ModItems.COMMUNISM_ITEM));
 
     @Override
     public void onInitialize() {

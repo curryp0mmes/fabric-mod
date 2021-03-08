@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "curry:communism_item"
+    }
+  ],
+  "result": {
+    "item": "curry:stalin_block",
+    "count": 1
+  }
+}
