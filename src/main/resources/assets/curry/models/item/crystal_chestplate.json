@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "curry:items/crystal_chestplate"
+  }
+}
