@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "#E#"
+  ],
+  "key": {
+    "#": {
+      "item": "curry:crystal"
+    },
+    "E": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "curry:crystal_boots",
+    "count": 1
+  }
+}
