@@ -17,6 +17,9 @@ public class FabricMod implements ModInitializer {
     public static final ItemGroup MOD_GROUP = FabricItemGroupBuilder
             .build(new Identifier(MOD_ID, "general"),
             () -> new ItemStack(ModItems.COMMUNISM_ITEM));
+    public static final ItemGroup CRYSTAL_GROUP = FabricItemGroupBuilder
+            .build(new Identifier(MOD_ID, "crystal"),
+            () -> new ItemStack(ModItems.CRYSTAL));
 
     @Override
     public void onInitialize() {
