@@ -18,5 +18,5 @@ This is just the start though, so be prepared for more features soon.
 
 ## License
 
-Created from the official fabric mod template for 1.16.5.
+Created from the official [fabric mod template](https://github.com/FabricMC/fabric-example-mod) for 1.16.5.
 This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
