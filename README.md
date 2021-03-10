@@ -12,6 +12,7 @@ Current features are:
 - crystal shards 
 - crystal ore
 - crafting recipes to get from shards to crystal etc.
+- crystal armor
  
 This is just the start though, so be prepared for more features soon.
 
