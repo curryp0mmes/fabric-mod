@@ -25,8 +25,24 @@ public class ModBlocks {
             .strength(2.f,20.f)
             .sounds(BlockSoundGroup.STONE));
 
+    public static final Block CRYSTAL_BLOCK = new Block(FabricBlockSettings
+            .of(Material.METAL)
+            .breakByTool(FabricToolTags.PICKAXES)
+            .requiresTool()
+            .strength(2.f,20.f)
+            .sounds(BlockSoundGroup.METAL));
+
+    public static final Block CRYSTAL_BRICKS = new Block(FabricBlockSettings
+            .of(Material.METAL)
+            .breakByTool(FabricToolTags.PICKAXES)
+            .requiresTool()
+            .strength(2.f,20.f)
+            .sounds(BlockSoundGroup.METAL));
+
     public static void registerBlocks() {
         Registry.register(Registry.BLOCK, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "stalin_block"), STALIN_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_block"), CRYSTAL_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_bricks"), CRYSTAL_BRICKS);
     }
 }

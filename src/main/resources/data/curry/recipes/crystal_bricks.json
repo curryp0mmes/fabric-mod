@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "curry:crystal_block"
+    },
+    {
+      "item": "curry:crystal_block"
+    },
+    {
+      "item": "curry:crystal_block"
+    },
+    {
+      "item": "curry:crystal_block"
+    }
+  ],
+  "result": {
+    "item": "curry:crystal_bricks",
+    "count": 4
+  }
+}
