@@ -1,5 +1,6 @@
 package com.curryp0mmes.fabric.mod.uno;
 
+import com.curryp0mmes.fabric.mod.uno.customstuff.GunProjectile;
 import com.curryp0mmes.fabric.mod.uno.registry.ModBlocks;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import com.curryp0mmes.fabric.mod.uno.registry.OreGenerators;
@@ -14,12 +15,19 @@ public class FabricMod implements ModInitializer {
 
     public static final String MOD_ID = "curry";
 
+
     public static final ItemGroup MOD_GROUP = FabricItemGroupBuilder
             .build(new Identifier(MOD_ID, "general"),
             () -> new ItemStack(ModItems.COMMUNISM_ITEM));
     public static final ItemGroup CRYSTAL_GROUP = FabricItemGroupBuilder
             .build(new Identifier(MOD_ID, "crystal"),
             () -> new ItemStack(ModItems.CRYSTAL));
+
+
+
+
+
+
 
     @Override
     public void onInitialize() {

@@ -1,8 +1,14 @@
 package com.curryp0mmes.fabric.mod.uno.registry;
 
-import com.curryp0mmes.fabric.mod.uno.CrystalArmorMaterial;
+import com.curryp0mmes.fabric.mod.uno.customstuff.CrystalArmorMaterial;
 import com.curryp0mmes.fabric.mod.uno.FabricMod;
+import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
+import com.curryp0mmes.fabric.mod.uno.customstuff.GunProjectile;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.BlockItem;
@@ -17,6 +23,19 @@ public class ModItems {
     public static final Item COMMUNISM_ITEM = new Item(new Item.Settings().group(FabricMod.MOD_GROUP)); //
     public static final Item CRYSTAL = new Item(new Item.Settings().group(com.curryp0mmes.fabric.mod.uno.FabricMod.CRYSTAL_GROUP));
     public static final Item CRYSTAL_SHARD = new Item(new Item.Settings().group(com.curryp0mmes.fabric.mod.uno.FabricMod.CRYSTAL_GROUP));
+
+
+
+    //PISTOL
+    public static final Item PISTOL = new GunItem(new Item.Settings().group(FabricMod.MOD_GROUP));
+    public static final EntityType<GunProjectile> GunProjectileEntityType = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(FabricMod.MOD_ID, "gun_projectile"),
+            FabricEntityTypeBuilder.<GunProjectile>create(SpawnGroup.MISC, GunProjectile::new)
+                    .dimensions(EntityDimensions.fixed(0.25F, 0.25F)) // dimensions in Minecraft units of the projectile
+                    .trackRangeBlocks(4).trackedUpdateRate(10) // necessary for all thrown projectiles (as it prevents it from breaking, lol)
+                    .build() // VERY IMPORTANT DONT DELETE FOR THE LOVE OF GOD PSLSSSSSS
+    );
 
     //Armor
     public static final ArmorMaterial CRYSTAL_ARMOR_MATERIAL = new CrystalArmorMaterial();
@@ -33,6 +52,7 @@ public class ModItems {
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "communism_item"), COMMUNISM_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "pistol"), PISTOL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal"), CRYSTAL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_shard"), CRYSTAL_SHARD);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "stalin_block"), STALIN_BLOCK);

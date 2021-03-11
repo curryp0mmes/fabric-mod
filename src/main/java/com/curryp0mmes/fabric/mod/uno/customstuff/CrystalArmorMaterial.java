@@ -1,4 +1,4 @@
-package com.curryp0mmes.fabric.mod.uno;
+package com.curryp0mmes.fabric.mod.uno.customstuff;
 
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.minecraft.entity.EquipmentSlot;
