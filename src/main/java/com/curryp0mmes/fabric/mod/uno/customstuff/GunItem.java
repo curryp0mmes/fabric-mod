@@ -17,15 +17,16 @@ public class GunItem extends Item {
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand); // creates a new ItemStack instance of the user's itemStack in-hand
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F); // plays a globalSoundEvent
-		/*
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1F, 2F); // plays a globalSoundEvent
+        user.getItemCooldownManager().set(this, 20); //cooldown to use it again
+        /*
 		user.getItemCooldownManager().set(this, 5);
 		Optionally, you can add a cooldown to your item's right-click use, similar to Ender Pearls.
 		*/
         if (!world.isClient) {
             GunProjectile gunProjectile = new GunProjectile(world, user);
             gunProjectile.setItem(itemStack);
-            gunProjectile.setProperties(user, user.pitch, user.yaw, 0.0F, 1.5F, 0F);
+            gunProjectile.setProperties(user, user.pitch, user.yaw, 0.0F, 5.5F, 0F);
             world.spawnEntity(gunProjectile); // spawns entity
         }
 
