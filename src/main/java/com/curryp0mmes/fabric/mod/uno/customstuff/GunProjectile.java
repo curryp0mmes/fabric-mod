@@ -32,7 +32,7 @@ public class GunProjectile extends ThrownItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.PISTOL;
+        return ModItems.BULLET;
     }
 
     @Override
