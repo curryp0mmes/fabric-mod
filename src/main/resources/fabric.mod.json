@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "com.curryp0mmes.fabric.mod.uno.FabricMod"
+    ],
+    "client": [
+      "com.curryp0mmes.fabric.mod.uno.ClientStuff"
     ]
   },
   "mixins": [
