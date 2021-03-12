@@ -27,7 +27,7 @@ public class ModItems {
 
 
     //PISTOL
-    public static final Item PISTOL = new GunItem(new Item.Settings().group(FabricMod.MOD_GROUP));
+    public static final Item PISTOL = new GunItem(new Item.Settings().group(FabricMod.MOD_GROUP).maxCount(1));
     public static final EntityType<GunProjectile> GunProjectileEntityType = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(FabricMod.MOD_ID, "gun_projectile"),
@@ -36,6 +36,8 @@ public class ModItems {
                     .trackRangeBlocks(4).trackedUpdateRate(10) // necessary for all thrown projectiles (as it prevents it from breaking, lol)
                     .build() // VERY IMPORTANT DONT DELETE FOR THE LOVE OF GOD PSLSSSSSS
     );
+    public static final Item BULLET = new Item(new Item.Settings().group(FabricMod.MOD_GROUP));
+
 
     //Armor
     public static final ArmorMaterial CRYSTAL_ARMOR_MATERIAL = new CrystalArmorMaterial();
@@ -53,6 +55,7 @@ public class ModItems {
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "communism_item"), COMMUNISM_ITEM);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "pistol"), PISTOL);
+        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "bullet"), BULLET);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal"), CRYSTAL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_shard"), CRYSTAL_SHARD);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "stalin_block"), STALIN_BLOCK);

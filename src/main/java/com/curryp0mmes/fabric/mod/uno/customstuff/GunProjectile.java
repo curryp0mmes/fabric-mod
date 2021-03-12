@@ -47,7 +47,7 @@ public class GunProjectile extends ThrownItemEntity {
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), (float)i); // deals damage
 
         if (entity instanceof LivingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
-            entity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 2F, 1F); // plays a sound for the entity hit only
+            //entity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 2F, 1F); // plays a sound for the entity hit only
         }
     }
 
