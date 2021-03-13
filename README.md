@@ -5,6 +5,9 @@
 The purpose of this mod was to learn fabric development. 
 Now that I know the basics, I will continue to add random stuff, maybe one day this is a proper mod with a proper purpose.
 
+Update: The purpose has been found!
+This mod is currently developing into a gun mod 
+
 ## Features
 
 Current features are:
@@ -13,8 +16,19 @@ Current features are:
 - crystal ore
 - crafting recipes to get from shards to crystal etc.
 - crystal armor
+
+New features:
+- A functional gun with nbt ammo count and a fancy 3d model
+- Ammo shells, ammo, and bullets with fancy 3d models
  
 This is just the start though, so be prepared for more features soon.
+
+##Planned features
+
+- Mechanic to lay down by sneaking again
+- More weapons
+- More fancy 3d models
+
 
 ## License
 

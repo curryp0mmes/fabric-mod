@@ -1,9 +1,9 @@
 package com.curryp0mmes.fabric.mod.uno;
 
 import com.curryp0mmes.fabric.mod.uno.customstuff.EntitySpawnPacket;
-import com.curryp0mmes.fabric.mod.uno.customstuff.GunProjectile;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
@@ -13,6 +13,7 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
@@ -21,12 +22,15 @@ import org.lwjgl.glfw.GLFW;
 import java.util.UUID;
 
 public class ClientStuff implements ClientModInitializer {
-    private static KeyBinding keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+    public static final String KEY_CATEGORY = "category.curry.general";
+    private static final KeyBinding reloadKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.curry.reload", // The translation key of the keybinding's name
             InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
             GLFW.GLFW_KEY_R, // The keycode of the key
-            "category.curry.general" // The translation key of the keybinding's category.
-    ));;
+            KEY_CATEGORY // The translation key of the keybinding's category.
+    ));
+
+
     public static final Identifier PacketID = new Identifier(FabricMod.MOD_ID, "spawn_packet");
 
     @Override
@@ -34,6 +38,13 @@ public class ClientStuff implements ClientModInitializer {
         EntityRendererRegistry.INSTANCE.register(ModItems.GunProjectileEntityType, (dispatcher, context) ->
                 new FlyingItemEntityRenderer(dispatcher, context.getItemRenderer()));
         receiveEntityPacket();
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            while (reloadKeyBinding.wasPressed()) {
+                client.player.sendMessage(new LiteralText("Key Reload was pressed!"), false);
+            }
+        });
+
     }
 
     @SuppressWarnings("deprecation")
