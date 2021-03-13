@@ -1,6 +1,7 @@
 package com.curryp0mmes.fabric.mod.uno;
 
 import com.curryp0mmes.fabric.mod.uno.customstuff.EntitySpawnPacket;
+import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -13,6 +14,8 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -42,6 +45,18 @@ public class ClientStuff implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (reloadKeyBinding.wasPressed()) {
                 client.player.sendMessage(new LiteralText("Key Reload was pressed!"), false);
+                ItemStack item = client.player.getMainHandStack();
+                if(item.getTag().contains("ammunition") && item.getItem() instanceof GunItem && !client.player.abilities.creativeMode) {
+                    CompoundTag tag = item.getTag();
+                    int amount = tag.getInt("ammunition");
+                    while(client.player.inventory.count(ModItems.AMMO) > 0) {
+                        client.player.inventory.removeOne(ModItems.AMMO.getDefaultStack());
+                        amount++;
+                        if(amount >= 0) break;
+                    }
+                    tag.putInt("ammunition", amount + 1);
+                    item.setTag(tag);
+                }
             }
         });
 
