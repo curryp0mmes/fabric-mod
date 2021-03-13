@@ -14,6 +14,8 @@
   "item.curry.pistol.no_ammo": "No more Ammunition!",
   "item.curry.pistol.ammo_left": "Ammunition left: ",
   "item.curry.bullet": "Bullet",
+  "item.curry.ammo": "Ammunition",
+  "item.curry.ammo_shell": "Golden Shell",
   "itemGroup.curry.general": "USSR Items",
   "itemGroup.curry.crystal": "Crystal Items",
   "key.curry.reload": "Reload Gun",

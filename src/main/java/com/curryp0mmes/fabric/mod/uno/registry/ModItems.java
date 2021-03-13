@@ -37,6 +37,8 @@ public class ModItems {
                     .build() // VERY IMPORTANT DONT DELETE FOR THE LOVE OF GOD PSLSSSSSS
     );
     public static final Item BULLET = new Item(new Item.Settings().group(FabricMod.MOD_GROUP));
+    public static final Item AMMO_SHELL = new Item(new Item.Settings().group(FabricMod.MOD_GROUP));
+    public static final Item AMMO = new Item(new Item.Settings().group(FabricMod.MOD_GROUP));
 
 
     //Armor
@@ -54,15 +56,24 @@ public class ModItems {
 
     public static void registerItems() {
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "communism_item"), COMMUNISM_ITEM);
+
+        //Gun Items
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "pistol"), PISTOL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "bullet"), BULLET);
+        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo_shell"), AMMO_SHELL);
+        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo"), AMMO);
+
+        //Crystal Stuff
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal"), CRYSTAL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_shard"), CRYSTAL_SHARD);
+
+        //Blocks
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "stalin_block"), STALIN_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_block"), CRYSTAL_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_bricks"), CRYSTAL_BRICKS);
 
+        //Crystal Armor
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_helmet"), CRYSTAL_HELMET);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_chestplate"), CRYSTAL_CHESTPLATE);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal_leggings"), CRYSTAL_LEGGINGS);

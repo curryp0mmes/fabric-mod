@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "curry:bullet"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "curry:ammo_shell"
+    }
+  ],
+  "result": {
+    "item": "curry:ammo",
+    "count": 1
+  }
+}
