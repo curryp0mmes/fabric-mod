@@ -2,6 +2,7 @@ package com.curryp0mmes.fabric.mod.uno;
 
 import com.curryp0mmes.fabric.mod.uno.customstuff.EntitySpawnPacket;
 import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
+import com.curryp0mmes.fabric.mod.uno.customstuff.M4CarbineRenderer;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -29,6 +30,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import org.lwjgl.glfw.GLFW;
+import software.bernie.geckolib3.renderer.geo.GeoItemRenderer;
 
 import java.util.UUID;
 
@@ -56,6 +58,7 @@ public class ClientEnv implements ClientModInitializer {
                 ClientPlayNetworking.send(ModNetworkingConstants.RELOAD_PACKET_ID, PacketByteBufs.empty());
             }
         });
+        GeoItemRenderer.registerItemRenderer(ModItems.M4_CARBINE, new M4CarbineRenderer());
 
     }
 

@@ -10,10 +10,7 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -24,6 +21,10 @@ public class ModItems {
     public static final Item COMMUNISM_ITEM = new Item(new Item.Settings().group(FabricMod.MOD_GROUP)); //
     public static final Item CRYSTAL = new Item(new Item.Settings().group(com.curryp0mmes.fabric.mod.uno.FabricMod.CRYSTAL_GROUP));
     public static final Item CRYSTAL_SHARD = new Item(new Item.Settings().group(com.curryp0mmes.fabric.mod.uno.FabricMod.CRYSTAL_GROUP));
+
+
+    //Rifle
+    public static final Item M4_CARBINE = new Item (new Item.Settings().group(FabricMod.MOD_GROUP).maxCount(1));
 
 
 
@@ -63,6 +64,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "bullet"), BULLET);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo_shell"), AMMO_SHELL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo"), AMMO);
+        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "m4_carbine"), M4_CARBINE);
 
         //Crystal Stuff
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal"), CRYSTAL);
