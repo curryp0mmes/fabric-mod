@@ -4,6 +4,7 @@ import com.curryp0mmes.fabric.mod.uno.customstuff.CrystalArmorMaterial;
 import com.curryp0mmes.fabric.mod.uno.FabricMod;
 import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
 import com.curryp0mmes.fabric.mod.uno.customstuff.GunProjectile;
+import com.curryp0mmes.fabric.mod.uno.customstuff.SimplePistolItem;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -27,7 +28,7 @@ public class ModItems {
 
 
     //PISTOL
-    public static final Item PISTOL = new GunItem(new Item.Settings().group(FabricMod.MOD_GROUP).maxCount(1));
+    public static final Item SIMPLE_PISTOL = new SimplePistolItem(new Item.Settings().group(FabricMod.MOD_GROUP).maxCount(1));
     public static final EntityType<GunProjectile> GunProjectileEntityType = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(FabricMod.MOD_ID, "gun_projectile"),
@@ -58,7 +59,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "communism_item"), COMMUNISM_ITEM);
 
         //Gun Items
-        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "pistol"), PISTOL);
+        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "pistol"), SIMPLE_PISTOL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "bullet"), BULLET);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo_shell"), AMMO_SHELL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo"), AMMO);
