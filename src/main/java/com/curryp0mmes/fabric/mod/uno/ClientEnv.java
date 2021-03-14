@@ -4,18 +4,26 @@ import com.curryp0mmes.fabric.mod.uno.customstuff.EntitySpawnPacket;
 import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -24,7 +32,8 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.UUID;
 
-public class ClientStuff implements ClientModInitializer {
+@Environment(EnvType.CLIENT)
+public class ClientEnv implements ClientModInitializer {
     public static final String KEY_CATEGORY = "category.curry.general";
     private static final KeyBinding reloadKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.curry.reload", // The translation key of the keybinding's name
@@ -45,22 +54,12 @@ public class ClientStuff implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (reloadKeyBinding.wasPressed()) {
                 client.player.sendMessage(new LiteralText("Key Reload was pressed!"), false);
-                ItemStack item = client.player.getMainHandStack();
-                if(item.getTag().contains("ammunition") && item.getItem() instanceof GunItem && !client.player.abilities.creativeMode) {
-                    CompoundTag tag = item.getTag();
-                    int amount = tag.getInt("ammunition");
-                    while(true /*&& client.player.inventory.count(ModItems.AMMO) > 0*/) {
-                        client.player.inventory.removeOne(ModItems.AMMO.getDefaultStack());
-                        amount++;
-                        if(amount >= 0) break;
-                    }
-                    tag.putInt("ammunition", amount + 1);
-                    item.setTag(tag);
-                }
+                ClientPlayNetworking.send(ModNetworkingConstants.RELOAD_PACKET_ID, PacketByteBufs.empty());
             }
         });
 
     }
+
 
     @SuppressWarnings("deprecation")
     public void receiveEntityPacket() {

@@ -1,6 +1,9 @@
 package com.curryp0mmes.fabric.mod.uno.customstuff;
 
+import com.curryp0mmes.fabric.mod.uno.ModNetworkingConstants;
+import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -29,6 +32,22 @@ public class GunItem extends Item implements IAnimatable {
 
     public GunItem(Settings settings) {
         super(settings);
+        ServerPlayNetworking.registerGlobalReceiver(ModNetworkingConstants.RELOAD_PACKET_ID, (server, client, handler, buf, responseSender) -> {
+            client.sendMessage(new LiteralText("RELOAD SERVER"), false);
+            ItemStack item = client.getMainHandStack();
+            if(item.getTag().contains("ammunition") && item.getItem() instanceof GunItem && !client.abilities.creativeMode) {
+                CompoundTag tag = item.getTag();
+                int amount = tag.getInt("ammunition");
+                while(true && client.inventory.count(ModItems.AMMO) > 0) {
+                    client.inventory.removeOne(ModItems.AMMO.getDefaultStack());
+                    amount++;
+                    if(amount >= 0) break;
+                }
+                tag.putInt("ammunition", amount + 1);
+                item.setTag(tag);
+            }
+
+        });
     }
 
 

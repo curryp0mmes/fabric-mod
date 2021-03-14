@@ -1,17 +1,14 @@
 package com.curryp0mmes.fabric.mod.uno.customstuff;
 
-import com.curryp0mmes.fabric.mod.uno.ClientStuff;
+import com.curryp0mmes.fabric.mod.uno.ClientEnv;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.Packet;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
@@ -37,7 +34,7 @@ public class GunProjectile extends ThrownItemEntity {
 
     @Override
     public Packet createSpawnPacket() {
-        return EntitySpawnPacket.create(this, ClientStuff.PacketID);
+        return EntitySpawnPacket.create(this, ClientEnv.PacketID);
     }
 
     protected void onEntityHit(EntityHitResult entityHitResult) { // called on entity hit.

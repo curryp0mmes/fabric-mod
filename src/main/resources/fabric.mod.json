@@ -22,7 +22,10 @@
       "com.curryp0mmes.fabric.mod.uno.FabricMod"
     ],
     "client": [
-      "com.curryp0mmes.fabric.mod.uno.ClientStuff"
+      "com.curryp0mmes.fabric.mod.uno.ClientEnv"
+    ],
+    "server": [
+      "com.curryp0mmes.fabric.mod.uno.ServerEnv"
     ]
   },
   "mixins": [
