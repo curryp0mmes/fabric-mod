@@ -49,7 +49,7 @@ public class ClientStuff implements ClientModInitializer {
                 if(item.getTag().contains("ammunition") && item.getItem() instanceof GunItem && !client.player.abilities.creativeMode) {
                     CompoundTag tag = item.getTag();
                     int amount = tag.getInt("ammunition");
-                    while(client.player.inventory.count(ModItems.AMMO) > 0) {
+                    while(true /*&& client.player.inventory.count(ModItems.AMMO) > 0*/) {
                         client.player.inventory.removeOne(ModItems.AMMO.getDefaultStack());
                         amount++;
                         if(amount >= 0) break;

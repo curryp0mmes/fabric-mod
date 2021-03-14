@@ -12,11 +12,20 @@ import net.minecraft.text.*;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 import java.awt.*;
 import java.util.List;
 
-public class GunItem extends Item {
+public class GunItem extends Item implements IAnimatable {
+
+    public AnimationFactory factory = new AnimationFactory(this);
 
     public GunItem(Settings settings) {
         super(settings);
@@ -60,5 +69,18 @@ public class GunItem extends Item {
         return TypedActionResult.success(itemStack, world.isClient());
 
     }
+    private <P extends Item & IAnimatable> PlayState predicate(AnimationEvent<P> event)
+    {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("Soaryn_chest_popup", true));
+        return PlayState.CONTINUE;
+    }
+    @Override
+    public void registerControllers(AnimationData animationData) {
+        animationData.addAnimationController(new AnimationController(this, "controller", 20, this::predicate));
+    }
 
+    @Override
+    public AnimationFactory getFactory() {
+        return this.factory;
+    }
 }
