@@ -14,7 +14,7 @@ import net.minecraft.text.LiteralText;
 public class ServerEnv implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
-        System.out.println("Moin meister");
+        System.out.println("GunMod Init");
 
 
     }

@@ -33,17 +33,15 @@ public class GunItem extends Item implements IAnimatable {
     public GunItem(Settings settings) {
         super(settings);
         ServerPlayNetworking.registerGlobalReceiver(ModNetworkingConstants.RELOAD_PACKET_ID, (server, client, handler, buf, responseSender) -> {
-            client.sendMessage(new LiteralText("RELOAD SERVER"), false);
             ItemStack item = client.getMainHandStack();
             if(item.getTag().contains("ammunition") && item.getItem() instanceof GunItem && !client.abilities.creativeMode) {
                 CompoundTag tag = item.getTag();
                 int amount = tag.getInt("ammunition");
-                while(true && client.inventory.count(ModItems.AMMO) > 0) {
-                    client.inventory.removeOne(ModItems.AMMO.getDefaultStack());
+                while(amount < 0 && client.inventory.count(ModItems.AMMO) > 0) {
+                    client.inventory.getStack(client.inventory.getSlotWithStack(ModItems.AMMO.getDefaultStack())).decrement(1);
                     amount++;
-                    if(amount >= 0) break;
                 }
-                tag.putInt("ammunition", amount + 1);
+                tag.putInt("ammunition", amount);
                 item.setTag(tag);
             }
 

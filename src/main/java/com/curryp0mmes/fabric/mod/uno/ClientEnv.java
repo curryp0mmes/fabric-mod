@@ -53,7 +53,6 @@ public class ClientEnv implements ClientModInitializer {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (reloadKeyBinding.wasPressed()) {
-                client.player.sendMessage(new LiteralText("Key Reload was pressed!"), false);
                 ClientPlayNetworking.send(ModNetworkingConstants.RELOAD_PACKET_ID, PacketByteBufs.empty());
             }
         });
