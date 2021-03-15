@@ -11,7 +11,7 @@
 							"vector": [0, 0, 0]
 						},
 						"0.0833": {
-							"vector": [-4, 0, 0]
+							"vector": [-2, 0, 0]
 						},
 						"0.5": {
 							"vector": [0, 0, 0]
@@ -22,7 +22,7 @@
 							"vector": [0, 0, 0]
 						},
 						"0.0833": {
-							"vector": [0, 0, 2.5]
+							"vector": [0, 0, 2]
 						},
 						"0.5": {
 							"vector": [0, 0, 0]
@@ -85,8 +85,22 @@
 						}
 					}
 				}
+			},
+			"sound_effects": {
+				"0.0":
+				{
+					"effect": "sound"
+				}
+			},
+			"particle_effects": {
+				"0.0417": {
+					"effect": "snowstormfire",
+					"locator": "locator"
+				}
 			}
-		},
+		}
+	},
+
 		"m4_carbine_reload": {
 			"animation_length": 1.04167,
 			"bones": {
@@ -171,4 +185,3 @@
 			}
 		}
 	}
-}

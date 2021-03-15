@@ -31,17 +31,18 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
 
     @Override
     public int getMaxAmmunition() {
-        return 20;
+        return 30;
     }
 
     private <P extends Item & IAnimatable> PlayState predicate(AnimationEvent<P> event)
     {
+
         event.getController().setAnimation(new AnimationBuilder().addAnimation("m4_carbine_fire", false));
         return PlayState.CONTINUE;
     }
     @Override
     public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, controllerName, 20, this::predicate));
+        animationData.addAnimationController(new AnimationController(this, controllerName, 1, this::predicate));
     }
 
     @Override
@@ -49,7 +50,7 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
         AnimationController controller = GeckoLibUtil.getControllerForStack(this.factory, item, controllerName);
 
         if (controller.getAnimationState() == AnimationState.Stopped) {
-            user.sendMessage(new LiteralText("Opening the jack in the box!"), true);
+            user.sendMessage(new LiteralText("Fire!"), true);
             // If you don't do this, the popup animation will only play once because the
             // animation will be cached.
             controller.markNeedsReload();
@@ -66,7 +67,7 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
         AnimationController controller = GeckoLibUtil.getControllerForStack(this.factory, user.getStackInHand(hand), controllerName);
 
         if (controller.getAnimationState() == AnimationState.Stopped) {
-            user.sendMessage(new LiteralText("Opening the jack in the box!"), true);
+            user.sendMessage(new LiteralText("Fire!"), true);
             // If you don't do this, the popup animation will only play once because the
             // animation will be cached.
             controller.markNeedsReload();
@@ -83,3 +84,4 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
         return this.factory;
     }
 }
+
