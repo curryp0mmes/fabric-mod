@@ -1,8 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"m4_carbine_fire": {
-			"loop": true,
+		"animation.m4carbine.fire": {
 			"animation_length": 0.5,
 			"bones": {
 				"CompleteRifle": {
@@ -166,19 +165,15 @@
 					}
 				}
 			},
-			"sound_effects": {
-				"0.0": {
-					"effect": "sound"
-				}
-			},
+			"sound_effects": {},
 			"particle_effects": {
 				"0.0417": {
-					"effect": "snowstormfire",
+					"effect": "fire",
 					"locator": "locator"
 				}
 			}
 		},
-		"m4_carbine_reload": {
+		"animation.m4carbine.reload": {
 			"animation_length": 1.04167,
 			"bones": {
 				"CompleteRifle": {

@@ -41,20 +41,19 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
     }
     @Override
     public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, controllerName, 0, this::predicate));
+        animationData.addAnimationController(new AnimationController(this, controllerName, 1, this::predicate));
     }
 
     @Override
     public void reloadAnimationCallback(PlayerEntity user, ItemStack item) {
         AnimationController controller = GeckoLibUtil.getControllerForStack(this.factory, item, controllerName);
-        System.out.println("RELOADING ACTION");
         if (controller.getAnimationState() == AnimationState.Stopped) {
             // If you don't do this, the popup animation will only play once because the
             // animation will be cached.
             controller.markNeedsReload();
             // Set the animation to open the jackinthebox which will start playing music and
             // eventually do the actual animation. Also sets it to not loop
-            controller.setAnimation(new AnimationBuilder().addAnimation("m4_carbine_reload", false));
+            controller.setAnimation(new AnimationBuilder().addAnimation("animation.m4carbine.reload", false));
         }
 
         return;
@@ -62,6 +61,8 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
 
     @Override
     public TypedActionResult<ItemStack> fireAnimationCallback(World world, PlayerEntity user, Hand hand) {
+        System.out.println("TEST");
+        if(!world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
         AnimationController controller = GeckoLibUtil.getControllerForStack(this.factory, user.getStackInHand(hand), controllerName);
 
         if (controller.getAnimationState() == AnimationState.Stopped) {
@@ -70,9 +71,9 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
             controller.markNeedsReload();
             // Set the animation to open the jackinthebox which will start playing music and
             // eventually do the actual animation. Also sets it to not loop
-            controller.setAnimation(new AnimationBuilder().addAnimation("m4_carbine_fire", false));
+            controller.setAnimation(new AnimationBuilder().addAnimation("animation.m4carbine.fire", false));
         }
-        user.getItemCooldownManager().set(this, 5); //cooldown to use it again
+        //user.getItemCooldownManager().set(this, 5); //cooldown to use it again
         return TypedActionResult.pass(user.getStackInHand(hand));
     }
 
