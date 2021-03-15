@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -46,6 +47,8 @@ public class GunItem extends Item {
                 }
                 tag.putInt("ammunition", amount);
                 item.setTag(tag);
+
+                reloadAnimationCallback(client,item);
                 client.sendMessage(new TranslatableText("item.curry.pistol.ammo_left").append(String.valueOf(amount + this.getMaxAmmunition())), true);
             }
         });
@@ -73,8 +76,7 @@ public class GunItem extends Item {
             user.sendMessage(new TranslatableText("item.curry.pistol.ammo_left").append(String.valueOf(ammo + this.getMaxAmmunition())), true);
         }
 
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1F, 2F); // plays a globalSoundEvent
-        user.getItemCooldownManager().set(this, 10); //cooldown to use it again
+
     /*
     user.getItemCooldownManager().set(this, 5);
     Optionally, you can add a cooldown to your item's right-click use, similar to Ender Pearls.
@@ -89,8 +91,16 @@ public class GunItem extends Item {
         user.incrementStat(Stats.USED.getOrCreateStat(this));
 
 
-        return TypedActionResult.success(itemStack, world.isClient());
+        return fireAnimationCallback(world,user,hand);
 
     }
 
+    public void reloadAnimationCallback(PlayerEntity client, ItemStack item) {
+        return;
+    }
+    public TypedActionResult<ItemStack> fireAnimationCallback(World world, PlayerEntity user, Hand hand) {
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1F, 2F); // plays a globalSoundEvent
+        user.getItemCooldownManager().set(this, 10); //cooldown to use it again
+        return TypedActionResult.success(user.getStackInHand(hand), world.isClient());
+    }
 }

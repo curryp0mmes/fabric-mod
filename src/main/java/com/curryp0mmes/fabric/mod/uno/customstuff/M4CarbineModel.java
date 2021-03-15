@@ -22,6 +22,6 @@ public class M4CarbineModel extends AnimatedGeoModel<M4CarbineItem>
     @Override
     public Identifier getAnimationFileLocation(M4CarbineItem object)
     {
-        return new Identifier(FabricMod.MOD_ID, "animations/m4_carbine_reload.animation.json");
+        return new Identifier(FabricMod.MOD_ID, "animations/m4_carbine.animation.json");
     }
 }
