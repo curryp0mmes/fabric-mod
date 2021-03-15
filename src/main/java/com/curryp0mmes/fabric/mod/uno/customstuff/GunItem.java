@@ -48,9 +48,9 @@ public class GunItem extends Item {
                 tag.putInt("ammunition", amount);
                 item.setTag(tag);
 
-                reloadAnimationCallback(client,item);
                 client.sendMessage(new TranslatableText("item.curry.pistol.ammo_left").append(String.valueOf(amount + this.getMaxAmmunition())), true);
             }
+            reloadAnimationCallback(client,item);
         });
     }
 
@@ -59,7 +59,9 @@ public class GunItem extends Item {
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+
         ItemStack itemStack = user.getStackInHand(hand); // creates a new ItemStack instance of the user's itemStack in-hand
+        if(!canShoot(world, user, hand)) return TypedActionResult.pass(itemStack);
 
         CompoundTag tag = itemStack.getOrCreateTag();
         int ammo = tag.getInt("ammunition");
@@ -93,6 +95,10 @@ public class GunItem extends Item {
 
         return fireAnimationCallback(world,user,hand);
 
+    }
+
+    public boolean canShoot(World world, PlayerEntity user, Hand hand) {
+        return true;
     }
 
     public void reloadAnimationCallback(PlayerEntity client, ItemStack item) {
