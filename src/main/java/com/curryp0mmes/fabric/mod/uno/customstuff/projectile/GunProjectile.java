@@ -1,4 +1,4 @@
-package com.curryp0mmes.fabric.mod.uno.customstuff;
+package com.curryp0mmes.fabric.mod.uno.customstuff.projectile;
 
 import com.curryp0mmes.fabric.mod.uno.ClientEnv;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;

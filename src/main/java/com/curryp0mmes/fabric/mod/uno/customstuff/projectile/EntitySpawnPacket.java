@@ -1,4 +1,4 @@
-package com.curryp0mmes.fabric.mod.uno.customstuff;
+package com.curryp0mmes.fabric.mod.uno.customstuff.projectile;
 
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;

@@ -1,7 +1,10 @@
 package com.curryp0mmes.fabric.mod.uno.registry;
 
-import com.curryp0mmes.fabric.mod.uno.customstuff.*;
 import com.curryp0mmes.fabric.mod.uno.FabricMod;
+import com.curryp0mmes.fabric.mod.uno.customstuff.item.M4CarbineItem;
+import com.curryp0mmes.fabric.mod.uno.customstuff.item.SimplePistolItem;
+import com.curryp0mmes.fabric.mod.uno.customstuff.material.CrystalArmorMaterial;
+import com.curryp0mmes.fabric.mod.uno.customstuff.projectile.GunProjectile;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -11,7 +14,6 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import software.bernie.example.registry.RegistryUtils;
-import software.bernie.geckolib3.renderer.geo.GeoItemRenderer;
 
 
 public class ModItems {

@@ -1,20 +1,23 @@
-package com.curryp0mmes.fabric.mod.uno.customstuff;
+package com.curryp0mmes.fabric.mod.uno.customstuff.item;
 
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.LiteralText;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import software.bernie.example.registry.SoundRegistry;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
 import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.ParticleKeyFrameEvent;
+import software.bernie.geckolib3.core.event.SoundKeyframeEvent;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
@@ -36,12 +39,32 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
 
     private <P extends Item & IAnimatable> PlayState predicate(AnimationEvent<P> event)
     {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("m4_carbine_fire", false));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.m4carbine.fire", false));
         return PlayState.CONTINUE;
     }
     @Override
     public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, controllerName, 1, this::predicate));
+        AnimationController controller = new AnimationController(this, controllerName, 1, this::predicate);
+        controller.registerSoundListener(this::soundListener);
+        controller.registerParticleListener(this::particleListener);
+        animationData.addAnimationController(controller);
+    }
+    private <ENTITY extends IAnimatable> void particleListener(ParticleKeyFrameEvent<ENTITY> event) {
+
+        World world = MinecraftClient.getInstance().world;
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+
+        world.addParticle(new DefaultParticleType(false)., player.getX(), player.getY());
+    }
+
+    private <ENTITY extends IAnimatable> void soundListener(SoundKeyframeEvent<ENTITY> event) {
+        // The animation for the jackinthebox has a sound keyframe at time 0:00.
+        // As soon as that keyframe gets hit this method fires and it starts playing the
+        // sound to the current player.
+        // The music is synced with the animation so the box opens as soon as the music
+        // plays the box opening sound
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        player.playSound(SoundRegistry.JACK_MUSIC, 1, 1);
     }
 
     @Override

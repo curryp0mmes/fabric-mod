@@ -1,8 +1,8 @@
-package com.curryp0mmes.fabric.mod.uno.customstuff;
+package com.curryp0mmes.fabric.mod.uno.customstuff.model;
 
 import com.curryp0mmes.fabric.mod.uno.FabricMod;
+import com.curryp0mmes.fabric.mod.uno.customstuff.item.M4CarbineItem;
 import net.minecraft.util.Identifier;
-import software.bernie.geckolib3.GeckoLib;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class M4CarbineModel extends AnimatedGeoModel<M4CarbineItem>

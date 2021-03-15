@@ -1,7 +1,5 @@
 package com.curryp0mmes.fabric.mod.uno;
 
-import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
-import com.curryp0mmes.fabric.mod.uno.customstuff.GunProjectile;
 import com.curryp0mmes.fabric.mod.uno.registry.ModBlocks;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import com.curryp0mmes.fabric.mod.uno.registry.OreGenerators;
@@ -10,7 +8,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.GeckoLib;
 

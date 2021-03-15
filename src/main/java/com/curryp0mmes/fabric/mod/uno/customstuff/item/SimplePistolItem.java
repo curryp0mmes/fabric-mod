@@ -1,4 +1,4 @@
-package com.curryp0mmes.fabric.mod.uno.customstuff;
+package com.curryp0mmes.fabric.mod.uno.customstuff.item;
 
 public class SimplePistolItem extends GunItem {
 
