@@ -1,10 +1,7 @@
 package com.curryp0mmes.fabric.mod.uno.registry;
 
-import com.curryp0mmes.fabric.mod.uno.customstuff.CrystalArmorMaterial;
+import com.curryp0mmes.fabric.mod.uno.customstuff.*;
 import com.curryp0mmes.fabric.mod.uno.FabricMod;
-import com.curryp0mmes.fabric.mod.uno.customstuff.GunItem;
-import com.curryp0mmes.fabric.mod.uno.customstuff.GunProjectile;
-import com.curryp0mmes.fabric.mod.uno.customstuff.SimplePistolItem;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -13,6 +10,8 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import software.bernie.example.registry.RegistryUtils;
+import software.bernie.geckolib3.renderer.geo.GeoItemRenderer;
 
 
 public class ModItems {
@@ -24,7 +23,10 @@ public class ModItems {
 
 
     //Rifle
-    public static final Item M4_CARBINE = new Item (new Item.Settings().group(FabricMod.MOD_GROUP).maxCount(1));
+    public static final M4CarbineItem M4_CARBINE = RegistryUtils.registerItem(
+            new M4CarbineItem(new Item.Settings().group(FabricMod.MOD_GROUP).maxCount(1)),
+            new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "m4_carbine")
+    );
 
 
 
@@ -66,7 +68,7 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "bullet"), BULLET);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo_shell"), AMMO_SHELL);
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "ammo"), AMMO);
-        Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "m4_carbine"), M4_CARBINE);
+        //GeoItemRenderer.registerItemRenderer(M4_CARBINE, new M4CarbineRenderer());
 
         //Crystal Stuff
         Registry.register(Registry.ITEM, new Identifier(com.curryp0mmes.fabric.mod.uno.FabricMod.MOD_ID, "crystal"), CRYSTAL);
