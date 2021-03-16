@@ -42,8 +42,6 @@ public class GunItem extends Item {
             }
             reloadAnimationCallback(client,item);
         });
-
-
     }
 
     public int getMaxAmmunition() {

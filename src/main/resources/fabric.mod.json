@@ -29,6 +29,7 @@
     ]
   },
   "mixins": [
+    "curry.mixins.json"
   ],
 
   "depends": {

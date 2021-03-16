@@ -15,8 +15,8 @@ public class PlayerLayDown {
 
     public static void registerEvents() {
         ServerPlayNetworking.registerGlobalReceiver(ModNetworkingConstants.SNEAKING_PACKET_ID, (server, client, handler, buf, responseSender) -> {
-            if(!(client.getMainHandStack().getItem() instanceof GunItem || client.getOffHandStack().getItem() instanceof GunItem)) return;
-            //if(!client.isOnGround()) return;
+            //if(!(client.getMainHandStack().getItem() instanceof GunItem) && !(client.getOffHandStack().getItem() instanceof GunItem)) return;
+            if(client.abilities.flying) return;
 
             if(client.getPose() == EntityPose.STANDING) client.setPose(EntityPose.CROUCHING);
             if(client.getPose() == EntityPose.CROUCHING) client.setPose(EntityPose.SWIMMING);

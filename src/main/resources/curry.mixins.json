@@ -1,13 +1,13 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "com.curryp0mmes.fabric.mod.uno.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "EntityPoseMixin"
   ],
-  "client": [
-    "ExampleMixin"
-  ],
+  "client": [],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
