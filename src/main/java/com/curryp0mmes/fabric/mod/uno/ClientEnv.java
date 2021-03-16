@@ -13,6 +13,7 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
@@ -35,6 +36,12 @@ public class ClientEnv implements ClientModInitializer {
             GLFW.GLFW_KEY_R, // The keycode of the key
             KEY_CATEGORY // The translation key of the keybinding's category.
     ));
+    private static final KeyBinding layDownKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+            "key.curry.lay_down", // The translation key of the keybinding's name
+            InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
+            GLFW.GLFW_KEY_LEFT_SHIFT, // The keycode of the key
+            KEY_CATEGORY // The translation key of the keybinding's category.
+    ));
 
 
     public static final Identifier PacketID = new Identifier(FabricMod.MOD_ID, "spawn_packet");
@@ -48,6 +55,9 @@ public class ClientEnv implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (reloadKeyBinding.wasPressed()) {
                 ClientPlayNetworking.send(ModNetworkingConstants.RELOAD_PACKET_ID, PacketByteBufs.empty());
+            }
+            while (layDownKeyBinding.wasPressed()) {
+                ClientPlayNetworking.send(ModNetworkingConstants.SNEAKING_PACKET_ID, PacketByteBufs.empty());
             }
         });
         GeoItemRenderer.registerItemRenderer(ModItems.M4_CARBINE, new M4CarbineRenderer());

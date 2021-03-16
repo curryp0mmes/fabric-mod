@@ -1,7 +1,9 @@
 package com.curryp0mmes.fabric.mod.uno;
 
+import com.curryp0mmes.fabric.mod.uno.customstuff.PlayerLayDown;
 import com.curryp0mmes.fabric.mod.uno.registry.ModBlocks;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
+import com.curryp0mmes.fabric.mod.uno.registry.ModParticles;
 import com.curryp0mmes.fabric.mod.uno.registry.OreGenerators;
 import net.fabricmc.api.ModInitializer;
 
@@ -35,6 +37,8 @@ public class FabricMod implements ModInitializer {
         ModItems.registerItems();
         ModBlocks.registerBlocks();
         OreGenerators.configureOres();
+        ModParticles.registerParticles();
+        PlayerLayDown.registerEvents();
 
         System.out.println("Yay this is working");
 

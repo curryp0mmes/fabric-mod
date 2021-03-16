@@ -1,12 +1,14 @@
 package com.curryp0mmes.fabric.mod.uno.customstuff.item;
 
 
+import com.curryp0mmes.fabric.mod.uno.registry.ModParticles;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -54,7 +56,7 @@ public class M4CarbineItem extends GunItem implements IAnimatable {
         World world = MinecraftClient.getInstance().world;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
 
-        world.addParticle(new DefaultParticleType(false)., player.getX(), player.getY());
+        //world.addParticle(new ParticleEffect(ModParticles.GUNFIRE_PARTICLE), player.getX(), player.getY());
     }
 
     private <ENTITY extends IAnimatable> void soundListener(SoundKeyframeEvent<ENTITY> event) {

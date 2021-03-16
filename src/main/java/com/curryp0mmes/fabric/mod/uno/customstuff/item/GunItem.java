@@ -4,6 +4,7 @@ import com.curryp0mmes.fabric.mod.uno.ModNetworkingConstants;
 import com.curryp0mmes.fabric.mod.uno.customstuff.projectile.GunProjectile;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,7 +28,7 @@ public class GunItem extends Item {
 
             if(item.getItem() != this) return;
 
-            if(item.getTag().contains("ammunition") && item.getItem() instanceof GunItem && !client.abilities.creativeMode) {
+            if(!client.abilities.creativeMode) {
                 CompoundTag tag = item.getOrCreateTag();
                 int amount = tag.getInt("ammunition");
                 while(amount < 0 && client.inventory.count(ModItems.AMMO) > 0) {
@@ -41,6 +42,8 @@ public class GunItem extends Item {
             }
             reloadAnimationCallback(client,item);
         });
+
+
     }
 
     public int getMaxAmmunition() {
@@ -91,8 +94,8 @@ public class GunItem extends Item {
     }
 
     public void reloadAnimationCallback(PlayerEntity client, ItemStack item) {
-        return;
     }
+
     public TypedActionResult<ItemStack> fireAnimationCallback(World world, PlayerEntity user, Hand hand) {
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 1F, 2F); // plays a globalSoundEvent
         user.getItemCooldownManager().set(this, 10); //cooldown to use it again
