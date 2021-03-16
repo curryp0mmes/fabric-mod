@@ -39,12 +39,13 @@ public class ClientEnv implements ClientModInitializer {
             GLFW.GLFW_KEY_R, // The keycode of the key
             KEY_CATEGORY // The translation key of the keybinding's category.
     ));
-    private static final KeyBinding layDownKeyBinding = KeyBindingHelper.registerKeyBinding(new StickyKeyBinding(
+    private static final KeyBinding layDownKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.curry.lay_down", // The translation key of the keybinding's name
+            InputUtil.Type.KEYSYM,
             GLFW.GLFW_KEY_LEFT_SHIFT, // The keycode of the key
-            KEY_CATEGORY, // The translation key of the keybinding's category.
-            () -> true
+            KEY_CATEGORY // The translation key of the keybinding's category.
     ));
+    private boolean wasLayDownPressed = false;
 
 
     public static final Identifier PacketID = new Identifier(FabricMod.MOD_ID, "spawn_packet");
@@ -60,9 +61,15 @@ public class ClientEnv implements ClientModInitializer {
             while (reloadKeyBinding.wasPressed()) {
                 ClientPlayNetworking.send(ModNetworkingConstants.RELOAD_PACKET_ID, PacketByteBufs.empty());
             }
-            if (layDownKeyBinding.wasPressed()) {
+            if (layDownKeyBinding.isPressed() && !wasLayDownPressed) {
                 ClientPlayNetworking.send(ModNetworkingConstants.SNEAKING_PACKET_ID, PacketByteBufs.empty());
+                PlayerLayDown.keyDown = true;
             }
+            else if(!layDownKeyBinding.isPressed() && wasLayDownPressed) {
+                ClientPlayNetworking.send(ModNetworkingConstants.NOT_SNEAKING_PACKET_ID, PacketByteBufs.empty());
+                PlayerLayDown.keyDown = false;
+            }
+            wasLayDownPressed = layDownKeyBinding.isPressed();
         });
 
 
