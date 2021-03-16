@@ -13,14 +13,14 @@ import net.minecraft.world.World;
 
 public class PlayerLayDown {
 
+    public static boolean changePosition = false;
+    public static boolean wasButtonPressed = false;
+
     public static void registerEvents() {
         ServerPlayNetworking.registerGlobalReceiver(ModNetworkingConstants.SNEAKING_PACKET_ID, (server, client, handler, buf, responseSender) -> {
-            //if(!(client.getMainHandStack().getItem() instanceof GunItem) && !(client.getOffHandStack().getItem() instanceof GunItem)) return;
-            if(client.abilities.flying) return;
-
-            if(client.getPose() == EntityPose.STANDING) client.setPose(EntityPose.CROUCHING);
-            if(client.getPose() == EntityPose.CROUCHING) client.setPose(EntityPose.SWIMMING);
-            else client.setPose(EntityPose.STANDING);
+            System.out.println("Key was pressed");
+            if(!wasButtonPressed) changePosition = true;
+            wasButtonPressed = true;
         });
     }
 

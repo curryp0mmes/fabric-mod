@@ -2,6 +2,7 @@ package com.curryp0mmes.fabric.mod.uno.customstuff.item;
 
 import com.curryp0mmes.fabric.mod.uno.ModNetworkingConstants;
 import com.curryp0mmes.fabric.mod.uno.customstuff.projectile.GunProjectile;
+import com.curryp0mmes.fabric.mod.uno.mixin.EntityPoseMixin;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.EntityPose;
@@ -24,6 +25,8 @@ public class GunItem extends Item {
     public GunItem(Settings settings) {
         super(settings);
         ServerPlayNetworking.registerGlobalReceiver(ModNetworkingConstants.RELOAD_PACKET_ID, (server, client, handler, buf, responseSender) -> {
+
+
             ItemStack item = client.getMainHandStack();
 
             if(item.getItem() != this) return;

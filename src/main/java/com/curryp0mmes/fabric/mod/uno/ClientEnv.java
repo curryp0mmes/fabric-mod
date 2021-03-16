@@ -1,5 +1,6 @@
 package com.curryp0mmes.fabric.mod.uno;
 
+import com.curryp0mmes.fabric.mod.uno.customstuff.PlayerLayDown;
 import com.curryp0mmes.fabric.mod.uno.customstuff.projectile.EntitySpawnPacket;
 import com.curryp0mmes.fabric.mod.uno.customstuff.render.M4CarbineRenderer;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
@@ -15,8 +16,10 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.input.KeyboardInput;
 import net.minecraft.client.options.KeyBinding;
+import net.minecraft.client.options.StickyKeyBinding;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
@@ -36,11 +39,11 @@ public class ClientEnv implements ClientModInitializer {
             GLFW.GLFW_KEY_R, // The keycode of the key
             KEY_CATEGORY // The translation key of the keybinding's category.
     ));
-    private static final KeyBinding layDownKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+    private static final KeyBinding layDownKeyBinding = KeyBindingHelper.registerKeyBinding(new StickyKeyBinding(
             "key.curry.lay_down", // The translation key of the keybinding's name
-            InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
             GLFW.GLFW_KEY_LEFT_SHIFT, // The keycode of the key
-            KEY_CATEGORY // The translation key of the keybinding's category.
+            KEY_CATEGORY, // The translation key of the keybinding's category.
+            () -> true
     ));
 
 
@@ -52,14 +55,17 @@ public class ClientEnv implements ClientModInitializer {
                 new FlyingItemEntityRenderer(dispatcher, context.getItemRenderer()));
         receiveEntityPacket();
 
+        //KEYBINDING EVENTS
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (reloadKeyBinding.wasPressed()) {
                 ClientPlayNetworking.send(ModNetworkingConstants.RELOAD_PACKET_ID, PacketByteBufs.empty());
             }
-            while (layDownKeyBinding.wasPressed()) {
+            if (layDownKeyBinding.wasPressed()) {
                 ClientPlayNetworking.send(ModNetworkingConstants.SNEAKING_PACKET_ID, PacketByteBufs.empty());
             }
         });
+
+
         GeoItemRenderer.registerItemRenderer(ModItems.M4_CARBINE, new M4CarbineRenderer());
 
     }
