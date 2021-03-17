@@ -2,10 +2,12 @@ package com.curryp0mmes.fabric.mod.uno.customstuff.item;
 
 import com.curryp0mmes.fabric.mod.uno.ModNetworkingConstants;
 import com.curryp0mmes.fabric.mod.uno.customstuff.projectile.GunProjectile;
-import com.curryp0mmes.fabric.mod.uno.mixin.EntityPoseMixin;
 import com.curryp0mmes.fabric.mod.uno.registry.ModItems;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.entity.EntityPose;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,6 +19,8 @@ import net.minecraft.text.*;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GunItem extends Item {
 
@@ -45,6 +49,21 @@ public class GunItem extends Item {
             }
             reloadAnimationCallback(client,item);
         });
+    }
+
+    public ItemStack getDefaultStack() {
+        ItemStack stack = new ItemStack(this);
+        CompoundTag tag = stack.getOrCreateTag();
+        tag.putInt("ammunition", 0);
+        stack.setTag(tag);
+        appendTooltip(stack, new TranslatableText("item.curry.pistol.ammo_left").append(String.valueOf(this.getMaxAmmunition())),TooltipContext.Default.NORMAL);
+        return stack;
+    }
+
+    @Environment(EnvType.CLIENT)
+    public void appendTooltip(ItemStack stack, Text str, TooltipContext context) {
+        List<Text> tooltip = stack.getTooltip(MinecraftClient.getInstance().player, context);
+        tooltip.add(str);
     }
 
     public int getMaxAmmunition() {

@@ -1,5 +1,6 @@
 package com.curryp0mmes.fabric.mod.uno.registry;
 
+import com.curryp0mmes.fabric.mod.uno.FabricMod;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -19,19 +20,19 @@ public class OreGenerators {
             .configure(new OreFeatureConfig(
                     OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
                     ModBlocks.CRYSTAL_ORE.getDefaultState(),
-                    9)) // vein size
+                    5)) // vein size
             .decorate(Decorator.RANGE.configure(new  RangeDecoratorConfig(
                     0,
                     0,
-                    64)))
+                    20)))
             .spreadHorizontally()
-            .repeat(20); // number of veins per chunk
+            .repeat(1); // number of veins per chunk
 
 
     @SuppressWarnings({"deprecation"})
     public static void configureOres() {
         RegistryKey<ConfiguredFeature<?, ?>> crystalOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-                new Identifier("tutorial", "crystal_ore_overworld"));
+                new Identifier(FabricMod.MOD_ID, "crystal_ore_overworld"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, crystalOreOverworld.getValue(), CRYSTAL_ORE_OVERWORLD);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, crystalOreOverworld);
     }

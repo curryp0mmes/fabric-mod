@@ -9,7 +9,5 @@ public class ServerEnv implements DedicatedServerModInitializer {
     @Override
     public void onInitializeServer() {
         System.out.println("GunMod Init");
-
-
     }
 }

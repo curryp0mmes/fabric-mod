@@ -20,16 +20,10 @@ public class FabricMod implements ModInitializer {
 
     public static final ItemGroup MOD_GROUP = FabricItemGroupBuilder
             .build(new Identifier(MOD_ID, "general"),
-            () -> new ItemStack(ModItems.COMMUNISM_ITEM));
+            () -> new ItemStack(ModItems.M4_CARBINE));
     public static final ItemGroup CRYSTAL_GROUP = FabricItemGroupBuilder
             .build(new Identifier(MOD_ID, "crystal"),
             () -> new ItemStack(ModItems.CRYSTAL));
-
-
-
-
-
-
 
     @Override
     public void onInitialize() {
@@ -39,21 +33,5 @@ public class FabricMod implements ModInitializer {
         OreGenerators.configureOres();
         ModParticles.registerParticles();
         PlayerLayDown.registerEvents();
-
-        System.out.println("Yay this is working");
-
-        int aCoolVariable = 10;
-
-        aCoolVariable += 10;
-
-        System.out.println("the cool variable is now " + aCoolVariable);
-
-        System.out.println("Test function says: " + testFunction(aCoolVariable));
-
-    }
-
-
-    public int testFunction(int x) {
-        return x+2;
     }
 }
