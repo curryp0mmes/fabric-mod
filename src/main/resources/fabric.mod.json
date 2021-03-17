@@ -3,10 +3,11 @@
   "id": "curry",
   "version": "${version}",
 
-  "name": "First Mod",
-  "description": "Doesn't do anything yet but we'll see ",
+  "name": "Gun Mod",
+  "description": "Adds a variety of Guns and mechanics to minecraft",
   "authors": [
-    "curryp0mmes"
+    "curryp0mmes",
+    "Christoph-C"
   ],
   "contact": {
     "homepage": "https://google.com/",
