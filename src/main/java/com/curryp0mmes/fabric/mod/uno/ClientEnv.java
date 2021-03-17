@@ -63,11 +63,8 @@ public class ClientEnv implements ClientModInitializer {
             }
             if (layDownKeyBinding.isPressed() && !wasLayDownPressed) {
                 ClientPlayNetworking.send(ModNetworkingConstants.SNEAKING_PACKET_ID, PacketByteBufs.empty());
-                PlayerLayDown.keyDown = true;
             }
             else if(!layDownKeyBinding.isPressed() && wasLayDownPressed) {
-                ClientPlayNetworking.send(ModNetworkingConstants.NOT_SNEAKING_PACKET_ID, PacketByteBufs.empty());
-                PlayerLayDown.keyDown = false;
             }
             wasLayDownPressed = layDownKeyBinding.isPressed();
         });
