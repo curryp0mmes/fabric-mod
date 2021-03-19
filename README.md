@@ -1,4 +1,4 @@
-# Fabric Example Mod
+# Realistic Guns Mod Fabric
 
 ## Purpose
 
@@ -20,12 +20,14 @@ Current features are:
 New features:
 - A functional gun with nbt ammo count and a fancy 3d model
 - Ammo shells, ammo, and bullets with fancy 3d models
- 
+- lay down with c to get a tactical advance
+- nice looking rifle
+
 This is just the start though, so be prepared for more features soon.
 
 ##Planned features
 
-- Mechanic to lay down by sneaking again
+- Awesomer bullets
 - More weapons
 - More fancy 3d models
 
