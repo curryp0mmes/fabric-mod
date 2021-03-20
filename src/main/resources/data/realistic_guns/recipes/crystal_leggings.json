@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#E#",
+    "# #",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "realistic_guns:crystal"
+    },
+    "E": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "item": "realistic_guns:crystal_leggings",
+    "count": 1
+  }
+}

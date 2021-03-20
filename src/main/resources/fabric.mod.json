@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "curry",
+  "id": "realistic_guns",
   "version": "${version}",
 
   "name": "Gun Mod",
@@ -11,26 +11,26 @@
   ],
   "contact": {
     "homepage": "https://google.com/",
-    "sources": "https://github.com/curryp0mmes/fabric-mod"
+    "sources": "https://github.com/curryp0mmes/realistic-guns-fabric"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/curry/icon.png",
+  "icon": "assets/realistic_guns/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.curryp0mmes.fabric.mod.uno.FabricMod"
+      "com.curryp0mmes.realistic.guns.FabricMod"
     ],
     "client": [
-      "com.curryp0mmes.fabric.mod.uno.ClientEnv"
+      "com.curryp0mmes.realistic.guns.ClientEnv"
     ],
     "server": [
-      "com.curryp0mmes.fabric.mod.uno.ServerEnv"
+      "com.curryp0mmes.realistic.guns.ServerEnv"
     ]
   },
   "mixins": [
-    "curry.mixins.json"
+    "realistic_guns.mixins.json"
   ],
 
   "depends": {

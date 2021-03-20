@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "realistic_guns:bullet"
+    },
+    {
+      "item": "realistic_guns:tiny_gunpowder"
+    },
+    {
+      "item": "realistic_guns:ammo_shell"
+    }
+  ],
+  "result": {
+    "item": "realistic_guns:ammo",
+    "count": 1
+  }
+}

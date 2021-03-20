@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "realistic_guns:blocks/crystal_bricks"
+  }
+}

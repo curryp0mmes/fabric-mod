@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "realistic_guns:crystal"
+    },
+    {
+      "item": "realistic_guns:crystal"
+    },
+    {
+      "item": "realistic_guns:crystal"
+    },
+    {
+      "item": "realistic_guns:crystal"
+    }
+  ],
+  "result": {
+    "item": "realistic_guns:crystal_block",
+    "count": 1
+  }
+}

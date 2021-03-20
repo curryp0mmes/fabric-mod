@@ -1,0 +1,26 @@
+{
+  "item.realistic_guns.communism_item": "Hammer and Sickle",
+  "block.realistic_guns.crystal_ore": "Crystal Ore",
+  "block.realistic_guns.crystal_block": "Crystal Block",
+  "block.realistic_guns.crystal_bricks": "Crystal Bricks",
+  "item.realistic_guns.crystal_shard": "Crystal Shard",
+  "item.realistic_guns.crystal": "Crystal",
+  "item.realistic_guns.crystal_helmet": "Crystal Helmet",
+  "item.realistic_guns.crystal_chestplate": "Crystal Chestplate",
+  "item.realistic_guns.crystal_leggings": "Crystal Leggings",
+  "item.realistic_guns.crystal_boots": "Crystal Boots",
+  "item.realistic_guns.tiny_gunpowder": "Tiny Piece of Gunpowder",
+  "item.realistic_guns.pistol": "Pistol",
+  "item.realistic_guns.pistol.no_ammo": "No more Ammunition!",
+  "item.realistic_guns.pistol.ammo_left": "Ammunition left: ",
+  "item.realistic_guns.bullet": "Bullet",
+  "item.realistic_guns.ammo": "Ammunition",
+  "item.realistic_guns.ammo_shell": "Golden Shell",
+  "itemGroup.realistic_guns.general": "USSR Items",
+  "itemGroup.realistic_guns.crystal": "Crystal Items",
+  "key.realistic_guns.reload": "Reload Gun",
+  "key.realistic_guns.lay_down": "Lay Down",
+  "category.realistic_guns.general": "realistic_guns's Mod",
+  "item.realistic_guns.m4_carbine": "M4 Carbine"
+
+}

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.curryp0mmes.fabric.mod.uno.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "com.curryp0mmes.realistic.guns.mixin.EntityPoseMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
