@@ -21,9 +21,7 @@ public class RealisticGunsMod implements ModInitializer {
     public static final ItemGroup MOD_GROUP = FabricItemGroupBuilder
             .build(new Identifier(MOD_ID, "general"),
             () -> new ItemStack(ModItems.M4_CARBINE));
-    public static final ItemGroup CRYSTAL_GROUP = FabricItemGroupBuilder
-            .build(new Identifier(MOD_ID, "crystal"),
-            () -> new ItemStack(ModItems.CRYSTAL));
+
 
     @Override
     public void onInitialize() {

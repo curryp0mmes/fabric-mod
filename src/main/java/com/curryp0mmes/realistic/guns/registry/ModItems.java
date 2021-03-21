@@ -3,7 +3,6 @@ package com.curryp0mmes.realistic.guns.registry;
 import com.curryp0mmes.realistic.guns.RealisticGunsMod;
 import com.curryp0mmes.realistic.guns.customstuff.item.M4CarbineItem;
 import com.curryp0mmes.realistic.guns.customstuff.item.SimplePistolItem;
-import com.curryp0mmes.realistic.guns.customstuff.material.CrystalArmorMaterial;
 import com.curryp0mmes.realistic.guns.customstuff.projectile.GunProjectile;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
