@@ -18,18 +18,11 @@ import software.bernie.example.registry.RegistryUtils;
 
 public class ModItems {
 
-    //Items
-    public static final Item CRYSTAL = new Item(new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-    public static final Item CRYSTAL_SHARD = new Item(new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-
-
     //Rifle
     public static final M4CarbineItem M4_CARBINE = RegistryUtils.registerItem(
             new M4CarbineItem(new Item.Settings().group(RealisticGunsMod.MOD_GROUP).maxCount(1)),
             new Identifier(RealisticGunsMod.MOD_ID, "m4_carbine")
     );
-
-
 
     //PISTOL
     public static final Item TINY_GUNPOWDER = new Item(new Item.Settings().group(RealisticGunsMod.MOD_GROUP));
@@ -46,19 +39,6 @@ public class ModItems {
     public static final Item AMMO_SHELL = new Item(new Item.Settings().group(RealisticGunsMod.MOD_GROUP));
     public static final Item AMMO = new Item(new Item.Settings().group(RealisticGunsMod.MOD_GROUP));
 
-
-    //Armor
-    public static final ArmorMaterial CRYSTAL_ARMOR_MATERIAL = new CrystalArmorMaterial();
-    public static final Item CRYSTAL_HELMET = new ArmorItem(CRYSTAL_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-    public static final Item CRYSTAL_CHESTPLATE = new ArmorItem(CRYSTAL_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-    public static final Item CRYSTAL_LEGGINGS = new ArmorItem(CRYSTAL_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-    public static final Item CRYSTAL_BOOTS = new ArmorItem(CRYSTAL_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-
-    //BlockItems
-    public static final BlockItem CRYSTAL_ORE = new BlockItem(ModBlocks.CRYSTAL_ORE, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-    public static final BlockItem CRYSTAL_BLOCK = new BlockItem(ModBlocks.CRYSTAL_BLOCK, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-    public static final BlockItem CRYSTAL_BRICKS = new BlockItem(ModBlocks.CRYSTAL_BRICKS, new Item.Settings().group(RealisticGunsMod.CRYSTAL_GROUP));
-
     public static void registerItems() {
 
         //Gun Items
@@ -68,20 +48,5 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "ammo_shell"), AMMO_SHELL);
         Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "ammo"), AMMO);
         //GeoItemRenderer.registerItemRenderer(M4_CARBINE, new M4CarbineRenderer());
-
-        //Crystal Stuff
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal"), CRYSTAL);
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_shard"), CRYSTAL_SHARD);
-
-        //Blocks
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_block"), CRYSTAL_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_bricks"), CRYSTAL_BRICKS);
-
-        //Crystal Armor
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_helmet"), CRYSTAL_HELMET);
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_chestplate"), CRYSTAL_CHESTPLATE);
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_leggings"), CRYSTAL_LEGGINGS);
-        Registry.register(Registry.ITEM, new Identifier(RealisticGunsMod.MOD_ID, "crystal_boots"), CRYSTAL_BOOTS);
     }
 }
