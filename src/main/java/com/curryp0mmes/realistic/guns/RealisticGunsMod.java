@@ -4,7 +4,6 @@ import com.curryp0mmes.realistic.guns.customstuff.PlayerLayDown;
 import com.curryp0mmes.realistic.guns.registry.ModBlocks;
 import com.curryp0mmes.realistic.guns.registry.ModItems;
 import com.curryp0mmes.realistic.guns.registry.ModParticles;
-import com.curryp0mmes.realistic.guns.registry.OreGenerators;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -28,7 +27,6 @@ public class RealisticGunsMod implements ModInitializer {
         GeckoLib.initialize();
         ModItems.registerItems();
         ModBlocks.registerBlocks();
-        OreGenerators.configureOres();
         ModParticles.registerParticles();
         PlayerLayDown.registerEvents();
     }
