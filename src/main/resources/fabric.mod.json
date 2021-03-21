@@ -20,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.curryp0mmes.realistic.guns.FabricMod"
+      "com.curryp0mmes.realistic.guns.RealisticGunsMod"
     ],
     "client": [
       "com.curryp0mmes.realistic.guns.ClientEnv"

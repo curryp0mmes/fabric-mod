@@ -1,6 +1,6 @@
 package com.curryp0mmes.realistic.guns.registry;
 
-import com.curryp0mmes.realistic.guns.FabricMod;
+import com.curryp0mmes.realistic.guns.RealisticGunsMod;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
@@ -32,7 +32,7 @@ public class OreGenerators {
     @SuppressWarnings({"deprecation"})
     public static void configureOres() {
         RegistryKey<ConfiguredFeature<?, ?>> crystalOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-                new Identifier(FabricMod.MOD_ID, "crystal_ore_overworld"));
+                new Identifier(RealisticGunsMod.MOD_ID, "crystal_ore_overworld"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, crystalOreOverworld.getValue(), CRYSTAL_ORE_OVERWORLD);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, crystalOreOverworld);
     }

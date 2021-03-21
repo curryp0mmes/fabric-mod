@@ -1,6 +1,6 @@
 package com.curryp0mmes.realistic.guns.registry;
 
-import com.curryp0mmes.realistic.guns.FabricMod;
+import com.curryp0mmes.realistic.guns.RealisticGunsMod;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -33,8 +33,8 @@ public class ModBlocks {
             .sounds(BlockSoundGroup.METAL));
 
     public static void registerBlocks() {
-        Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_block"), CRYSTAL_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(FabricMod.MOD_ID, "crystal_bricks"), CRYSTAL_BRICKS);
+        Registry.register(Registry.BLOCK, new Identifier(RealisticGunsMod.MOD_ID, "crystal_ore"), CRYSTAL_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(RealisticGunsMod.MOD_ID, "crystal_block"), CRYSTAL_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(RealisticGunsMod.MOD_ID, "crystal_bricks"), CRYSTAL_BRICKS);
     }
 }

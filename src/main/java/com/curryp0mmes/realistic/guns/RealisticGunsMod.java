@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.GeckoLib;
 
-public class FabricMod implements ModInitializer {
+public class RealisticGunsMod implements ModInitializer {
 
     public static final String MOD_ID = "realistic_guns";
 

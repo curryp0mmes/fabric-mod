@@ -45,7 +45,7 @@ public class ClientEnv implements ClientModInitializer {
     private boolean wasLayDownPressed = false;
 
 
-    public static final Identifier PacketID = new Identifier(FabricMod.MOD_ID, "spawn_packet");
+    public static final Identifier PacketID = new Identifier(RealisticGunsMod.MOD_ID, "spawn_packet");
 
     @Override
     public void onInitializeClient() {
