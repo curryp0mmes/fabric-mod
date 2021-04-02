@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iiI",
+        " Si"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_hoe"
+        },
+        "S": {
+            "item": "minecraft:stone_button"
+        }
+    },
+    "result": {
+        "item": "realistic_guns:pistol",
+        "count": 1
+    }
+}
