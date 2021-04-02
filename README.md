@@ -8,16 +8,14 @@ Now that I know the basics, I will continue to add random stuff, maybe one day t
 Update: The purpose has been found!
 This mod is currently developing into a gun mod 
 
+## Dependencies
+- GeckoLib
+
+
 ## Features
 
-Current features are:
-- crystals
-- crystal shards 
-- crystal ore
-- crafting recipes to get from shards to crystal etc.
-- crystal armor
 
-New features:
+Current features are:
 - A functional gun with nbt ammo count and a fancy 3d model
 - Ammo shells, ammo, and bullets with fancy 3d models
 - lay down with c to get a tactical advance
@@ -25,7 +23,15 @@ New features:
 
 This is just the start though, so be prepared for more features soon.
 
-##Planned features
+
+> *THESE WERE MOVED TO A SEPERATE MOD*
+- crystals
+- crystal shards 
+- crystal ore
+- crafting recipes to get from shards to crystal etc.
+- crystal armor
+
+## Planned features
 
 - Awesomer bullets
 - More weapons
